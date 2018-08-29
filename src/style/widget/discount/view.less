@@ -1,0 +1,55 @@
+@charset "UTF-8";
+.discountView{
+  .intro{
+    padding: 2%;
+    background: @white;
+    s{
+      margin-left: 10px;
+    }
+  }
+  .tenant_intro{
+    padding: 0 0 2%;
+    margin-top: 2%;
+    background: @white;
+
+    p{
+      padding: 0 2%;
+      &.tit01{
+        line-height: 2em;
+        padding: 0;
+        margin-bottom: 2%;
+        position: relative;
+        &:after{
+          .mixin(bottom,solid,@gray03);
+        }
+      }
+    }
+  }
+
+  //新
+  .car_information{
+    .sr_weui-cell();
+    .weui-cell__hd{
+      width: 35vw;
+      height: 25vw;
+      margin-right: 2vw;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .weui-cell__bd{
+      .sr_weui-cell__bd();
+    }
+  }
+  .weui-cells_form{
+    .weui-cell{
+      width: 92%;
+      margin: 0 auto;
+    }
+    &:after{
+      width: 96%;
+      left: 2%;
+    }
+  }
+}

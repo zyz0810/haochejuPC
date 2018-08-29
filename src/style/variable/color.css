@@ -1,0 +1,28 @@
+.clr_red2 {
+  color: #ff5c5c;
+}
+.kong {
+  clear: both;
+  height: 0;
+  font-size: 1px;
+  line-height: 0px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.weui-search-bar__cancel-btn {
+  color: #a3a3a3;
+}
+.weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+  color: #ff6d06;
+}
+.weui-cells_checkbox .weui-icon-checked:before {
+  font-size: 18px;
+}
+.weui-navbar__item {
+  padding: 10px 0;
+}
+.weui-dialog__btn_primary {
+  color: #ff6d06;
+  font-weight: bold;
+}

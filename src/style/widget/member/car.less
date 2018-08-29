@@ -1,0 +1,112 @@
+@charset "UTF-8";
+.myCar{
+  .top_title{
+    .add_car{
+      position: absolute;
+      right: 2vw;
+      top: 0;
+      width: 45px;
+      line-height: 45px;
+    }
+  }
+  .pageable{
+    background: url("/weixin/images/static/member/car_bg.png") no-repeat;
+    background-size: 100% auto;
+    background-position: left bottom;
+    &.add{
+      .weui-cells_form{
+        margin: 0 0 4vw;
+        padding: 2vw 2vw 0;
+        .weui-cell{
+          .weui-cell__hd{
+            width: 85px;
+          }
+        }
+      }
+      p{
+        padding: 0 2vw;
+      }
+    }
+    .publish_bottom{
+      position: fixed;
+      left: 10vw;
+      bottom: 50vw;
+    }
+  }
+
+  .list{
+    padding: 2%;
+    .weui-cell{
+      background: @white;
+      box-shadow: 0 0 8px #c9dbeb;
+      .weui-cell__hd{
+        width: 25vw;
+        height: 25vw;
+        border: 1px solid @gray03;
+        margin-right: 2vw;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+.top_tab{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: @white;
+  .weui-flex__item{
+    padding: 0 4%;
+    span{
+      display: inline-block;
+      line-height: 45px;
+    }
+    &.active{
+      color: @baseColor;
+      span{
+        border-bottom: 2px solid @baseColor;
+      }
+    }
+  }
+}
+
+.member_carList{
+  .weui-cells{
+    margin-top: 0;
+    background: transparent;
+    &:before,&:after{
+      border: none;
+    }
+  }
+  .weui-cell{
+    background: @white;
+    margin: 0 2vw 2vw;
+    border-radius: 3px;
+    box-shadow: 0 0 8px #a5d5ff;
+    .sr_weui-cell();
+    .weui-cell__hd{
+      width: 37vw;
+      height: 24vw;
+      margin-right: 2vw;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .weui-cell__bd{
+      .sr_weui-cell__bd();
+    }
+  }
+
+}
+.maintain{
+  .top_tab{
+    padding: 0 4%;
+    .weui-flex__item{
+      padding: 0;
+    }
+  }
+}

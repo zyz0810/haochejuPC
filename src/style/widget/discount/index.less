@@ -1,0 +1,113 @@
+@charset "UTF-8";
+.listGrid{
+  margin-top: 2%;
+  .listGrid_item{
+    display: block;
+    width: 47%;
+    padding: 1%;
+    margin-bottom: 2%;
+    background: @white;
+    &:nth-child(2n-1){
+      margin-right: 1%;
+    }
+    &:nth-child(2n){
+      margin-left: 1%;
+    }
+    p{
+      &.name{
+        line-height: 1.6;
+        height: 3.2em;
+        margin-bottom: 2%;
+      }
+    }
+  }
+}
+
+
+//新
+
+.discount_bg{
+  padding-top: 4vw;
+  background: url("/weixin/images/static/discount/bg.png") no-repeat;
+  background-size: 100% 90%;
+  .new_search{
+    position: static;
+    width: 94%;
+    margin: 0 auto;
+    .search{
+      width: 99%;
+      .weui-icon-search:before{
+        color: @orange03;
+      }
+    }
+  }
+}
+.discount_brand{
+  width: 90%;
+  padding: 2vw;
+  margin: 4vw auto;
+  background: @orange03;
+  border-radius: 5px;
+  ul{
+    font-size: 0;
+    li{
+      width: 18.4%;
+      line-height: 2;
+      display: inline-block;
+      //padding: 0 5px;
+      margin: 2vw 2% 0 0;
+      border-radius: 3px;
+      background: @white;
+      &:nth-child(5n){
+        margin-right: 0;
+      }
+      &.active{
+        background: @blue07;
+        a{
+          color: @baseColor;
+        }
+      }
+    }
+  }
+}
+.discount_listGrid{
+  padding: 3%;
+  .listGrid_item{
+    position: relative;
+    display: block;
+    width: 48%;
+    padding: 0 0 2%;
+    margin-bottom: 2%;
+    border: 1px solid @gray03;
+    &:nth-child(2n-1){
+      margin-right: 2.5%;
+    }
+    .tag{
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 3px 10px;
+      background: @orange03;
+    }
+    p{
+      padding: 0 2%;
+      &.name{
+        line-height: 1.6;
+        height: 3.2em;
+        margin-bottom: 2%;
+      }
+    }
+    .price{
+      margin-top: 5px;
+      .mini_price{
+        margin-top: 1em;
+      }
+    }
+    .inquiry_btn{
+      background: @baseColor;
+      line-height: 2.5em;
+      padding: 0 15px;
+      border-radius: 3px;
+    }
+  }
+}

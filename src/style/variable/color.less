@@ -1,0 +1,142 @@
+@baseColor:#0f84de;   //挑货网橙色系列
+@white:#fff;//白色
+//灰色系
+@gray01:#908f8f;
+@gray02:#666666;
+@gray03:#cdcdcd;
+@gray04:#cccccc;
+@gray05:#333333;
+@gray06:#5d5d5d;
+@gray07:#4D5154;
+@gray08:#F3F3F5;
+@gray09:#494949;
+@gray10:#999999;
+@gray11:#cbcbcb;
+@gray12:#8d8d8d;
+.baseColor{
+  color: @baseColor !important;
+}
+.white{
+  color: @white;
+}
+.gray01{
+  color: @gray01;
+}
+.gray02{
+  color: @gray02;
+}
+.gray03{
+  color: @gray03;
+}
+.gray04{
+  color: @gray04;
+}
+.gray05{
+  color: @gray05;
+}
+.gray06{
+  color: @gray06;
+}
+.gray07_bg{
+  background: @gray07;
+}
+.gray08_bg{
+  background: @gray08;
+}
+.gray09{
+  color: @gray09;
+}
+.gray10{
+  color: @gray10;
+}
+.gray11{
+  color: @gray11;
+}
+.gray12{
+  color: @gray12;
+}
+@blue01:#99AACD;
+@blue02:#5E6D90;
+@blue05:#1ccad5;
+@blue06:#dceffd;
+@blue07:#e5f4ff;
+@yellow01:#febf00;
+@yellow02:#fcf300;
+@yellow03:#fbf6a9;
+@red:#ec0909;
+@orange01:#fc9000;
+@orange02:#fbd6a9;
+@orange03:#ff9501;
+.blue01{
+  color: @blue01;
+}
+.blue02{
+  color: @blue02;
+}
+.bg_blue05{
+  background: @blue05 !important;
+}
+.bg_blue06{
+  background: @blue06 !important;
+}
+.blue07{
+  color: @blue07;
+}
+.yellow01{
+  color: @yellow01 !important;
+}
+.yellow02{
+  color: @yellow02 !important;
+}
+.yellow03{
+  color: @yellow03 !important;
+}
+
+.red{
+  color: @red;
+}
+.orange01{
+  color: @orange01;
+}
+.orange02{
+  color: @orange02;
+}
+.orange03{
+  color: @orange03;
+}
+
+//界面规范尺寸
+@topNav:44px;//顶部导航栏高度
+@LRmargint:14px;//列表左右的间距
+
+
+//浮动和对齐
+@left:left;
+@right:right;
+@center:center;
+
+//间距
+@5:5px;
+@10:10px;
+@15:15px;
+
+.colortorgb(@color){
+  @red:red(@color);
+  @green:green(@color);
+  @blue:blue(@color);
+  background: linear-gradient(rgba(@red, @green, @blue, 1), rgba(@red, @green, @blue, 0.7)); /* 标准的语法 */
+}
+
+//解决DIV无法撑开的问题
+.kong{clear:both;height:0;font-size: 1px;line-height: 0px; border:0;padding:0;margin: 0;}
+
+
+//改变WEIUI的一些组件的色值
+//搜索取消色值
+.weui-search-bar__cancel-btn{ color:#a3a3a3;}
+.weui-cells_checkbox .weui-icon-checked:before{ font-size:18px}
+
+.weui-navbar__item{padding:10px 0;}
+
+
+

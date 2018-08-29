@@ -1,0 +1,18 @@
+@charset "UTF-8";
+.foot_menu{
+  height: 53px;
+  background: @white;
+  border-top: 1px solid @gray03;
+  &:before{
+    border: none;
+  }
+
+  .weui-tabbar__item{
+    padding: 0;
+  }
+
+  .weui-tabbar__item.weui-bar__item_on .icon,.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label{
+    color: @baseColor;
+  }
+  .weui-tabbar__label{margin-top:-5px;}
+}

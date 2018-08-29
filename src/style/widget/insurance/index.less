@@ -1,0 +1,90 @@
+@charset "UTF-8";
+.insurance{
+  .banner{
+    font-size: 0;
+  }
+  .nav{
+    width: 100%;
+    padding: 4% 0;
+    background: @white;
+    li{
+      width: 33.33%;
+      img{
+        width: 40%;
+      }
+    }
+  }
+  .commend{
+    padding: 2vw 0;
+    margin-top: 2vw;
+    background: @white;
+    .cont{
+      padding-left: 4vw;
+      margin-top:4vw;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      font-size: 0;
+      li{
+        display: inline-block;
+        width: 42%;
+        margin-right: 2vw;
+        border: 1px solid #d8d8d8;
+        p{
+          word-break: break-all;
+          word-wrap: break-word;
+          white-space: pre-wrap;
+        }
+        &:last-child{
+          margin-right: 4vw;
+        }
+      }
+    }
+  }
+  .insurance_cont{
+    .title{
+      margin-bottom: 2%;
+    }
+    width: 96%;
+    padding: 2% 0;
+    margin: 2% auto 0;
+    background: @white;
+    border-radius: 8px;
+    ul{
+      li{
+        width: 33.33%;
+        img{
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+.insuranceTest{
+  .test_cont{
+    position: relative;
+    z-index: 998;
+    background: @white;
+    width: 88vw;
+    padding: 2vw;
+    margin: -2em auto 0;
+    border-radius: 5px;
+    box-shadow: 0 0 8px @baseColor;
+    .weui-cell{
+      .weui-cell__hd{
+        margin-right: 2vw;
+      }
+    }
+  }
+}
+.insuranceProduct{
+  .list{
+    padding: 4vw 4vw 0;
+    .list_item{
+      img{
+        border-radius: 5px;
+      }
+    }
+  }
+}

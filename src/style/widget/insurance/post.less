@@ -1,0 +1,43 @@
+@charset "UTF-8";
+.insurancePost{
+  .banner{
+    font-size: 0;
+  }
+  form{
+    margin: 5% auto;
+    input{
+      width: 86%;
+      height: 38px;
+      padding: 0 2%;
+      margin-bottom: 3%;
+      border: 1px solid @gray04;
+      background: @white;
+      &::-webkit-input-placeholder{
+        color: @gray02;
+      }    /* 使用webkit内核的浏览器 */
+      &:-moz-placeholder{
+        color: @gray02;
+      }                  /* Firefox版本4-18 */
+      &::-moz-placeholder{
+        color: @gray02;
+      }                  /* Firefox版本19+ */
+      &:-ms-input-placeholder{
+        color: @gray02;
+      }           /* IE浏览器 */
+    }
+    .code{
+      width: 90%;
+      margin: 0 auto;
+      input{
+        width: 40%;
+      }
+      .code_num{
+        width: 50%;
+      }
+    }
+  }
+  .publish_btn{
+    width: 90%;
+    margin: 0 auto .5em;
+  }
+}

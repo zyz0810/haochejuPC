@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.trial{
+  .peccancy,.trial_cont{
+    padding-top: 40px;
+  }
+
+  .license{
+    position: relative;
+    .area{
+      height: 1.6em;
+      line-height: 1.6em;
+      padding: 0 3px;
+      border: 2px solid @baseColor;
+      border-radius: 3px;
+      position: absolute;
+      left: 0;
+      top: -5%;
+      img{
+        position: absolute;
+        right: -2px;
+        bottom: -2px;
+        z-index: 999;
+        width: 6px;
+        height: 6px;
+      }
+    }
+    .license_num{
+      width: 82%;
+    }
+  }
+  #areaCont,#areaCont2{
+    //position: fixed;
+    //width: 100%;
+    //height: 50vw;
+
+    ul{
+      padding: 3.5%;
+      background: #f6f6f6;
+      border-top: 1px solid @gray03;
+      li{
+        width: 9%;
+        margin: 2% 3.5% 0 0;
+        background: @white;
+        box-shadow: 0 0 2px #ccc;
+      }
+    }
+  }
+}

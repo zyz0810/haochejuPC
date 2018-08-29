@@ -1,0 +1,89 @@
+@charset "UTF-8";
+.tenant{
+  .tenant_instro{
+    padding: 2%;
+  }
+  .tenant_name{
+    background: @white;
+    position: relative;
+    padding: 2%;
+    &:after{
+      .mixin(bottom,solid,@gray02)
+    }
+  }
+  .instro{
+    padding: 2%;
+    background: @white;
+    line-height: 2em;
+    .call{
+      line-height: 1.5;
+    }
+  }
+}
+.call{
+  color: @white;
+  background: #00c876;
+  padding: 3px 10px;
+  letter-spacing: 2px;
+}
+.car_tab{
+  width: 96%;
+  //padding: 2% 0;
+  margin: 0 auto;
+  background: @white;
+  position: relative;
+  &:after{
+    .mixin(bottom,solid,@gray03);
+  }
+  .weui-flex__item{
+    //&:first-child{
+    //  position: relative;
+    //  &:after{
+    //    .mixin(right,solid,@gray03);
+    //  }
+    //}
+    padding: 2% 0;
+    &.active{
+      color: @white;
+      background: @baseColor;
+    }
+  }
+}
+.product_tenant{
+  padding: 2%;
+  .weui-cell{
+    background: @white;
+    margin-bottom: 10px;
+    .sr_weui-cell();
+    &:before{
+      border: none;
+    }
+    .weui-cell__hd{
+      width: 30vw;
+      height:26vw;
+      margin-right: 10px;
+      position: relative;
+      img{
+        width: 100%;
+        height:100%;
+      }
+      .car_tag{
+        display: inline-block;
+        padding: 0 5px;
+        position: absolute;
+        z-index: 9999;
+        top:0;
+        left:0;
+        color: @white;
+        background: @baseColor;
+        &.used_car{
+          background: @yellow01;
+        }
+      }
+    }
+    .weui-cell__bd{
+      .sr_weui-cell__bd();
+
+    }
+  }
+}

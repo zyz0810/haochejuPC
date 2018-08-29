@@ -1,0 +1,188 @@
+@charset "UTF-8";
+html, body {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+body{
+    font-family: "Microsoft YaHei",-apple-system-font, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+ul{
+    list-style: none;
+}
+
+body, .page {
+    background-color: #f1f1f1;
+}
+
+.link{
+    color: #1AAD19;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    z-index: 1; // fix 滑动几次后可滚动区域会卡住的问题
+    &.js_show{
+        opacity: 1;
+    }
+}
+
+.page .widget {
+    width: 100%;
+    display: none;
+}
+
+.page .spacing {
+    padding: 0 15px;
+}
+
+.page__hd {
+    padding: 40px;
+}
+
+.page__bd {}
+
+.page__ft{
+    padding-top: 40px;
+    padding-bottom: 10px;
+    text-align: center;
+    img{
+        height: 18px;
+    }
+    &.j_bottom{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.page.toast{
+    background-color: #FFFFFF;
+}
+
+.page.article {
+    background-color: #FFFFFF;
+}
+
+.page.flex{
+    .placeholder{
+            background-color: #EBEBEB;
+            height:2.3em;
+            line-height:2.3em;
+            text-align: center;
+            margin: 5px;
+            color:#CFCFCF;
+        }
+}
+
+.page.loadmore{
+    background-color: #FFFFFF;
+}
+
+.page.searchbar{
+    .search_show {
+        display: none;
+        margin-top: 0;
+        font-size: 14px;
+        .weui-cell__bd{
+            padding:2px 0 2px 20px;
+            color:#666;
+        }
+    }
+}
+
+.page.actionsheet{
+    overflow: hidden;
+    .actionsheet__mask{
+        display: none;
+        transition:background .3s;
+    }
+    .actionsheet__mask_show{
+        background: rgba(0,0,0,.6);
+    }
+}
+
+.page.picker{
+    overflow: hidden;
+}
+
+.page.gallery{
+    overflow: hidden;
+}
+
+
+// animation
+@keyframes slideIn {
+    from {
+        transform: translate3d(100%, 0, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    to {
+        transform: translate3d(100%, 0, 0);
+        opacity: 0;
+    }
+}
+
+.page.slideIn {
+    animation: slideIn .2s forwards;
+}
+
+.page.slideOut {
+    animation: slideOut .2s forwards;
+}
+
+.sell-hd {
+    position: relative;
+    padding: 2%;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.2;
+    margin-top: 2%;
+    span {
+        display: inline-block;
+        border-left: 2px solid #ff6d06;
+        line-height: 1;
+        text-indent: 8px;
+    }
+}
+
+footer.btcopyright .techsupport {
+    height: 45px;
+    margin: .6em 0;
+    background: #fff;
+    img{
+        height: 45px;
+        display: block;
+        margin:0 auto;
+    }
+}
