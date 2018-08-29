@@ -1,0 +1,193 @@
+.new_company{
+  .new_list{
+    li{
+      padding: 2% 2% 0;
+      -webkit-transition: all .2s;
+      transition: all .2s;
+      -webkit-transform: translate3d(0,-5px,0);
+      transform: translate3d(0,-5px,0);
+      &:hover{
+        h3{
+          color: @baseColor;
+        }
+      }
+      .box{
+        color: @gray;
+        display: block;
+        padding-bottom: 2%;
+        border-bottom: 1px solid #e6e6e6;
+      }
+      .new_txt{
+        padding-left: 2%;
+        h3{
+          line-height: 2em;
+          margin: 0;
+        }
+        p{
+          &.word_omitted_two{
+            .word_omitted_two(2);
+          }
+          &.release{
+            margin-top: 10%;
+          }
+        }
+      }
+      &:hover{
+        box-shadow: 0 0 30px rgba(0,0,0,.1);
+        background: @white;
+      }
+    }
+    .article_page{
+      background: #ededed;
+      position: relative;
+      margin: 4% 0;
+      .pagination{
+        margin: 15px auto 5px;
+        li{
+          padding: 0;
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          margin: 0 3px;
+          border: 2px solid transparent;
+          border-radius: 50%;
+          background: none;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+
+          &.active{
+            background: none;
+            border: 2px solid #8a97a0;
+          }
+          &:hover{
+            color: #ee5b2e;
+            border-color: #ee5b2e;
+            box-shadow: none;
+            background-color: transparent;
+          }
+          &.first,&.last{
+            position: absolute;
+            top:15px;
+            border: 2px solid #8a97a0;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            -webkit-border-radius: 50%;
+            -webkit-transition: all 0s ease-in;
+            -moz-transition: all 0s ease-in;
+            transition: all 0s ease-in;
+            -o-transition: all 0s ease-in;
+            span{
+              position: absolute;
+              background: url(/website/images/static/new/yp_spirit.png) no-repeat;
+              width: 9px;
+              height: 15px;
+              border: none;
+              border-radius: 0;
+              padding: 0;
+            }
+          }
+
+          &.first{
+            left: 20px;
+              span{
+                left: 8px;
+                top: 7px;
+                background-position: -15px -300px;
+              }
+            }
+
+          &.last{
+            right: 20px;
+            span{
+              left: 11px;
+              top: 7px;
+              background-position: -34px -301px;
+            }
+          }
+          a,span{
+            padding: 0;
+            color:#8a97a0;
+            background: none;
+            border: none;
+            float: none;
+            line-height: 32px;
+          }
+          &.collapse{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .new_right{
+    padding-left: 2%;
+    .news_title{
+
+    }
+    .hot{
+      .hot_circle{
+        padding: 4%;
+        border: 1px solid #e6e6e6;
+        background: @white;
+        li{
+          margin: 15px 0;
+          .over-flow_omit();
+          a{
+          line-height: 1em;
+          letter-spacing: 2px;
+          //.word_omitted_two(1);
+
+            color: @gray;
+            span{
+              margin-right: 10px;
+            }
+            &:hover{
+              color: @baseColor;
+            }
+          }
+        }
+
+      }
+
+    }
+    .hot_search{
+      a{
+        display: inline-block;
+        padding: 4px 15px;
+        margin: 0 4px 10px 0;
+        border: 1px solid #e6e6e6;
+        border-radius: 50px;
+        background: @white;
+        &:hover{
+          color: @white;
+          background: @baseColor;
+        }
+      }
+    }
+  }
+  .new_content{
+    padding: 2%;
+    background: @white;
+    h3{
+      margin-bottom: 20px;
+    }
+    p{
+      text-indent: 2em;
+    }
+    .company_intro{
+      p{
+        line-height: 2em;
+        text-indent: 2em;
+        &.f20{
+          line-height: 3em;
+        }
+      }
+    }
+    img{
+      max-width: 100%;
+    }
+  }
+}

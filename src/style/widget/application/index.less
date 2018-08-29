@@ -1,0 +1,102 @@
+.applicationIndex {
+  .selectList {
+    //border: 1px solid #DCDCDC;
+    padding: 0;
+    width: 80%;
+    li {
+      &.active {
+        box-shadow: 0 0 10px 2px rgba(204, 204, 204, 0.7);
+        //border: none;
+        span {
+          color: #0FBFD8;
+          font-size: 16px;
+        }
+      }
+      &:hover {
+        box-shadow: 0 0 10px 2px rgba(204, 204, 204, 0.7);
+        //transform: translate(2px, 0);
+        //border: none;
+      }
+      color: #333333;
+      cursor: pointer;
+      //border-bottom: 1px solid #DCDCDC;
+      border: 1px solid #DCDCDC;
+      border-top: none;
+
+      transition: all .4s;
+      padding: 14px 14px 14px 25px;
+      font-size: 14px;
+      &.selectList_li1{
+        border-top:1px solid #DCDCDC;
+      }
+      i {
+        font-size: 16px;
+      }
+      span {
+        padding-left: 16px;
+      }
+    }
+  }
+  .contentList {
+    ol {
+      &.active {
+        visibility: visible;
+        pointer-events: auto;
+        display: block;
+        transition: all .4s;
+      }
+      visibility: hidden;
+      pointer-events: none;
+      display: none;
+      li {
+        margin-bottom: 3.333%;
+        a {
+          width: 90%;
+          height: 140px;
+          display: block;
+          margin: 0 auto;
+          padding: 23px 16px 20px 20px;
+          box-sizing: border-box;
+          border: 1px solid #E8E8E8;
+          border-radius: 4px;
+          position: relative;
+          color: #333333;
+          text-decoration: none;
+
+          p {
+            &.f18 {
+              color: #595961;
+              position: relative;
+              padding-bottom: 15px;
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background: #979797;
+                bottom: 0;
+              }
+            }
+            &.f14{
+              color: #9797a1;
+              margin-top: 15px;
+            }
+          }
+          .iconWrap {
+            width: 42px;
+            height: 42px;
+            //background: rgba(196, 152, 88, 1);
+            border-radius: 8px;
+            position: absolute;
+            top: -18px;
+            right: 18px;
+            img{
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

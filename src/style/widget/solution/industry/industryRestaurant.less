@@ -1,0 +1,341 @@
+.industryRestaurant {
+  .column1 .container-fluid{
+    padding: 0;
+     &> div {
+      //margin: 0 1.666666667%;
+      margin: 0 3.3% 0 0;
+      text-align: center;
+      padding: 40px 0;
+      cursor: pointer;
+      box-shadow: 0 0 42px rgba(173, 173, 173, 0.1);
+      //transition: all .2s;
+      transform: translate3d(0, -2px, 0);
+      &:last-child{
+        margin-right: 0;
+      }
+      img {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+      }
+      p {
+        margin: 0;
+        line-height: 1.4;
+      }
+      .title {
+        font-size: 18px;
+        color: #454242;
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
+      .describe {
+        font-size: 14px;
+        color: #525252;
+      }
+    }
+    &.dilemma_svg{
+      svg{
+        font-size: 56px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .column2 .container-fluid {
+    padding: 0;
+    .left{
+      img{
+        &.img01{
+          display: block;
+        }
+        &.img02{
+          display: none;
+        }
+      }
+    }
+  }
+
+  .column2 .container-fluid.active {
+    background: #FFFFFF;
+    .left{
+      box-shadow: 0 0 20px rgba(204, 204, 204, 0.8);
+      img{
+        &.img01{
+          display: none;
+        }
+        &.img02{
+          display: block;
+        }
+      }
+    }
+    .right {
+      //transition: all .2s;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .column2 .container-wrap {
+    height: 592px;
+    position: relative;
+  }
+  .column2 .container-fluid > div {
+    &.left {
+      box-sizing: border-box;
+      padding: 20px 2%;
+      img {
+        //display: block;
+        float: left;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        //border: 1px solid #979797;
+      }
+      .wrap {
+        margin-left: 85px;
+      }
+      .title {
+        font-size: 22px;
+        color: #454242;
+      }
+      .describe {
+        font-size: 14px;
+        color: #525252;
+      }
+    }
+    &.right {
+      background: #FFFFFF;
+      padding: 5% 0;
+      height: 592px;
+      position: absolute;
+      top: 0;
+      visibility: hidden;
+      opacity: 0;
+      .wrap {
+        width: 90%;
+        margin: 0 auto;
+        //cursor: pointer;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        transform: translate3d(0, -2px, 0);
+        padding: 5%;
+        img {
+          display: block;
+          //width: 279px;
+          //height: 212px;
+          width: 80%;
+          //height: 304px;
+          margin: 0 auto 20px;
+          box-sizing: content-box;
+          //padding: 40px 0;
+        }
+        .title {
+          font-size: 18px;
+          color: #333333;
+        }
+        .describe {
+          font-size: 14px;
+          color: #3A3535;
+        }
+      }
+    }
+  }
+
+  .column3{
+    img {
+      display: block;
+      width: 80%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+  .column4 {
+    color: #FFFFFF;
+    .container-fluid {
+      margin: 0;
+      padding: 0;
+    }
+    .detail, .panorama {
+      height: 480px;
+    }
+    .content-item {
+      display: none;
+    }
+    .content-item.active {
+      display: block;
+    }
+    .content-item div.detail div {
+      float: right;
+      //padding-right: 40px;
+      padding: 140px 40px 0;
+    }
+    .content-item div + div.detail div {
+      float: left;
+      padding-left: 40px;
+      //padding: 0 40px;
+    }
+    .detail {
+      background: #30A1B2;
+      &.detail01{
+        background: #006351;
+      }
+      &.detail02{
+        background: #017CC9;
+      }
+      &.detail03{
+        background: #C56861;
+      }
+      &.detail04{
+        background: #5F412F;
+      }
+      div {
+        box-sizing: border-box;
+        padding-top: 140px;
+        //width: 600px;
+        h1 {
+          color: #F1EFEF;
+          padding-bottom: 20px;
+        }
+        p {
+          color: #ECEBEB;
+        }
+      }
+    }
+    .panorama {
+      background: #EEEEEE;
+      color: #333;
+      font-size: 20px;
+      text-align: center;
+    }
+    .selectTap {
+      padding: 60px 0 40px;
+      .select-item.active{
+        img{
+          &.original{
+            display: none;
+          }
+          &.colour{
+            display: block;
+          }
+        }
+      }
+      .select-item {
+        img{
+          &.original{
+            display: block;
+          }
+          &.colour{
+            display: none;
+          }
+        }
+        position: relative;
+        cursor: pointer;
+        div {
+          //width: 110px;
+          //height: 110px;
+          width: 25%;
+          height:25%;
+          margin: 0 auto;
+          border-radius: 50%;
+          //background: #D8D8D8;
+        }
+        .arrowIcon{
+          display: none;
+          position: absolute;
+          top: -61px;
+        }
+        .arrow01{
+          width: 0;
+          height: 0;
+          border-top: 39px solid #006351;
+          border-right: 39px solid transparent;
+          left: 50%;
+        }
+        .arrow02{
+          width: 0;
+          height: 0;
+          border-top: 39px solid #017CC9;
+          border-right: 39px solid transparent;
+          left: 50%;
+        }
+        .arrow03{
+          width: 0;
+          height: 0;
+          border-top: 40px solid #C56861;
+          border-left: 40px solid transparent;
+          right: 50%;
+        }
+        .arrow04{
+          width: 0;
+          height: 0;
+          border-top: 40px solid #5F412F;
+          border-left: 40px solid transparent;
+          right: 50%;
+        }
+        &.active .arrowIcon {
+          display: block;
+        }
+
+      }
+    }
+
+  }
+  @media (max-width: 768px) {
+    .column1 .container-fluid > div {
+      padding: 20px 0 !important;
+    }
+
+    .column3 img {
+      margin-bottom: 20px;
+    }
+
+    .column4 {
+      .content-item {
+        display: block !important;
+      }
+      .detail {
+        height: auto !important;
+        div {
+          width: 100% !important;
+          padding: 20px !important;
+        }
+      }
+    }
+  }
+  @media (max-width: 970px) {
+    .column2 {
+      pointer-events: none;
+      .container-wrap {
+        height: auto !important;
+      }
+      .right {
+        display: block !important;
+        opacity: 1 !important;
+        height: auto !important;
+        position: relative !important;
+        img {
+          width: 80% !important;
+        }
+      }
+    }
+  }
+  .zhuce{
+    //padding: 30px 0;
+    a{
+      background: @baseColor;
+      padding: 10px 25px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.industryRestaurant{
+  .iconfontOne{
+    i{
+      font-size: 56px;
+      color: #00CEE8;
+      &.f52{
+        display: block;
+        margin-bottom: 26px;
+      }
+    }
+  }
+}
+

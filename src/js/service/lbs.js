@@ -12,7 +12,7 @@ lbs.prototype={
      */
     current:function () {
         ajax.get({
-            url:base+"weixin/lbs/current.jhtml",
+            url:base+"b2bwx/lbs/current.jhtml",
             success:this.fn
         });
     },
@@ -23,7 +23,7 @@ lbs.prototype={
      */
     get:function (data) {
         ajax.get({
-            url:base+"weixin/lbs/get.jhtml",
+            url:base+"b2bwx/lbs/get.jhtml",
             data:data,
             success:this.fn
         });
@@ -37,7 +37,7 @@ lbs.prototype={
      */
     update:function (data) {
         ajax.post({
-            url:base+'weixin/lbs/update.jhtml',
+            url:base+'b2bwx/lbs/update.jhtml',
             data:data,
             success:this.fn
         });

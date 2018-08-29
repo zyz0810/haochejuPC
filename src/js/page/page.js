@@ -1,56 +1,47 @@
-// var base = location.origin == "http://localhost:8080" ? "https://dev.tiaohuo.com/" : location.origin + "/";
-// var paymentBase = location.origin == "http://localhost:8080" ? "https://dev.tiaohuo.com/" : location.origin + "/";
-var base = "http://dev.susonghaoniu.com/";
-var paymentBase= "http://dev.susonghaoniu.com/";
+// var base = location.origin == "http://localhost:8080" ? "http://dev.tiaohuo.com/" : location.origin + "/";
+// var base = "http://localhost:8888/";
+//var base = location.protocol + "//" + (location.host.toUpperCase() === 'LOCALHOST:8080' ? 'dev.tiaohuo.com/' : location.host + "/")
+var hostname = window.location.hostname;
+if(hostname== 'localhost'){
+    var base='//dev.tiaohuo.com/';
+}else{
+    var base = window.location.origin + '/';
+}
 
 
 var redirecting = false;
-var hasLogin=false;
-var winH = $(window).height();
-var args = {};
-var supportTouch = function(){
-    try {
-        document.createEvent("TouchEvent");
-        return true;
-    } catch (e) {
-        return false;
-    }
-}();
-var triggerEvent = function (element, event) {
-    if (document.createEventObject) {
-        // IE浏览器支持fireEvent方法
-        var evt = document.createEventObject();
-        return element.fireEvent('on' + event, evt)
-    }
-    else {
-        // 其他标准浏览器使用dispatchEvent方法
-        var evt = document.createEvent('HTMLEvents');
-        evt.initEvent(event, true, true);
-        return !element.dispatchEvent(evt);
+var hasLogin = false;
+
+var util = {
+    GetQueryString: function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
     }
 };
-var pages = {};
 var pageManager = {
     $container: $('#container'),
     _pageStack: [],
     _configs: [],
-    _pageAppend: function(){},
+    _pageAppend: function () {
+    },
     _defaultPage: null,
     _pageIndex: 1,
-    _replaceType:false,
-    _getParam:function(url){
-        var hash = url?url:location.hash;
-        if(hash.indexOf('?')===-1){
+    _replaceType: false,
+    _getParam: function (url) {
+        var hash = url ? url : location.hash;
+        if (hash.indexOf('?') === -1) {
             return '';
         }
-        return hash.substring(hash.indexOf('?'),hash.length);
+        return hash.substring(hash.indexOf('?'), hash.length);
     },
-    _getHash:function(url){
-        var hash = url?url:location.hash;
-        if(hash===''){
+    _getHash: function (url) {
+        var hash = url ? url : location.hash;
+        if (hash === '') {
             return '#';
         }
-        return hash.substring(0,hash.indexOf('?')>1?hash.indexOf('?'):hash.length);
+        return hash.substring(0, hash.indexOf('?') > 1 ? hash.indexOf('?') : hash.length);
     },
     setDefault: function (defaultPage) {
         this._defaultPage = this._find('name', defaultPage);
@@ -72,8 +63,8 @@ var pageManager = {
             } else {
                 self._go(page);
             }
-            triggerEvent(window,'pageGoOk');
-            triggerEvent(window,url+'Ok');
+            triggerEvent(window, 'pageGoOk');
+            triggerEvent(window, url + 'Ok');
         });
 
         if (history.state && history.state._pageIndex) {
@@ -97,21 +88,21 @@ var pageManager = {
         if (!config) {
             return;
         }
-        location.hash = config.url+this._getParam(to);
+        location.hash = config.url + this._getParam(to);
         // location.reload();
     },
     _go: function (config) {
-        this._pageIndex ++;
+        this._pageIndex++;
         var stack;
-        if(this._replaceType){
+        if (this._replaceType) {
             stack = this._pageStack.pop();
         }
         history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
 
         var html = $(config.template).html();
         var $html = $(html).addClass('slideIn').addClass(config.name);
-        $html.on('animationend webkitAnimationEnd', function(){
-            stack&&stack.dom.remove();
+        $html.on('animationend webkitAnimationEnd', function () {
+            stack && stack.dom.remove();
             $html.removeClass('slideIn').addClass('js_show');
         });
         this.$container.append($html);
@@ -127,21 +118,21 @@ var pageManager = {
 
         return this;
     },
-    replace:function(to){
+    replace: function (to) {
         var url = this._getHash(to);
         var config = this._find('name', url);
         if (!config) {
             return;
         }
         this._replaceType = true;
-        location.replace('#'+to)
+        location.replace('#' + to)
     },
     back: function () {
         // history.back();
         history.go(-1)
     },
     _back: function (config) {
-        this._pageIndex --;
+        this._pageIndex--;
         var stack = this._pageStack.pop();
         if (!stack) {
             return;
@@ -149,9 +140,9 @@ var pageManager = {
         // var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
         var url = this._getHash();
         var found = this._findInStack(url);
-        if(url === '#'&&!found){
+        if (url === '#' && !found) {
             location.reload();
-        }else if (!found) {
+        } else if (!found) {
             var html = $(config.template).html();
             var $html = $(html).addClass('js_show').addClass(config.name);
             $html.insertBefore(stack.dom);
@@ -173,7 +164,7 @@ var pageManager = {
 
     _findInStack: function (url) {
         var found = null;
-        if(url === '#'){
+        if (url === '#') {
             url = this._defaultPage.url
         }
         for (var i = 0, len = this._pageStack.length; i < len; i++) {
@@ -225,11 +216,11 @@ var pageManager = {
     GetQueryString: function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = this._getParam().substr(1).match(reg);
-        if (r != null){
+        if (r != null) {
             return unescape(r[2]);
-        }else{
+        } else {
             var r2 = window.location.search.substr(1).match(reg);
-            if(r2 != null) return unescape(r2[2]);
+            if (r2 != null) return unescape(r2[2]);
         }
         return null;
     },
@@ -289,28 +280,28 @@ var pageManager = {
         Handlebars.registerHelper('lazyload', function (intr) {
             var div = document.createElement('div');
             div.innerHTML = intr;
-            $(div).find('img').forEach(function (ele,index) {
+            $(div).find('img').forEach(function (ele, index) {
                 ele = $(ele)
-                var src=ele.attr('src');
-                ele.attr('src','/weixin/images/placeholder/lazypic.png');
-                ele.attr('data-original',src);
+                var src = ele.attr('src');
+                ele.attr('src', '/weixin/images/placeholder/lazypic.png');
+                ele.attr('data-original', src);
             })
             return div.innerHTML;
 
         });
 
         Handlebars.registerHelper('crop', function (src, w, h) {
-            if (!src||src.indexOf("cdn") === -1) {
+            if (!src || src.indexOf("cdn") === -1) {
                 return src;
-            }else if (src.indexOf("@") !== -1) {
+            } else if (src.indexOf("@") !== -1) {
                 src = src.substring(0, src.indexOf("@"));
             }
-            var screen = window.devicePixelRatio*document.documentElement.clientWidth;
-            if (h =='1'){
+            var screen = window.devicePixelRatio * document.documentElement.clientWidth;
+            if (h == '1') {
                 w = Math.ceil(w * screen / 100);
                 h = 1;
                 src += "@" + w + "w_" + h + "l";
-            }else{
+            } else {
                 w = Math.ceil(w * screen / 100);
                 h = Math.ceil(h * screen / 100);
                 src += "@" + w + "w_" + h + "h_1e_1c_100Q";
@@ -318,8 +309,8 @@ var pageManager = {
             return src;
         });
 
-        Handlebars.registerHelper('if_even', function(value, options) {
-            if((value % 2) == 0) {
+        Handlebars.registerHelper('if_even', function (value, options) {
+            if ((value % 2) == 0) {
                 return options.fn(this);
             } else {
                 return options.inverse(this);
@@ -327,20 +318,38 @@ var pageManager = {
         });
 
 
-        Handlebars.registerHelper('compare', function(left, operator, right, options) {
+        Handlebars.registerHelper('compare', function (left, operator, right, options) {
             if (arguments.length < 3) {
                 throw new Error('Handlerbars Helper "compare" needs 2 parameters');
             }
             var operators = {
-                '==':     function(l, r) {return l == r; },
-                '===':    function(l, r) {return l === r; },
-                '!=':     function(l, r) {return l != r; },
-                '!==':    function(l, r) {return l !== r; },
-                '<':      function(l, r) {return l < r; },
-                '>':      function(l, r) {return l > r; },
-                '<=':     function(l, r) {return l <= r; },
-                '>=':     function(l, r) {return l >= r; },
-                'typeof': function(l, r) {return typeof l == r; }
+                '==': function (l, r) {
+                    return l == r;
+                },
+                '===': function (l, r) {
+                    return l === r;
+                },
+                '!=': function (l, r) {
+                    return l != r;
+                },
+                '!==': function (l, r) {
+                    return l !== r;
+                },
+                '<': function (l, r) {
+                    return l < r;
+                },
+                '>': function (l, r) {
+                    return l > r;
+                },
+                '<=': function (l, r) {
+                    return l <= r;
+                },
+                '>=': function (l, r) {
+                    return l >= r;
+                },
+                'typeof': function (l, r) {
+                    return typeof l == r;
+                }
             };
 
 
@@ -359,9 +368,15 @@ var pageManager = {
 
 
         // 初始化控制
-        if(typeof accordion !=='undefined'){accordion.bind()}
-        if(typeof searchbar !=='undefined'){searchbar.init();}
-        if(typeof huanxin !=='undefined'){huanxin.bind();}
+        if (typeof accordion !== 'undefined') {
+            accordion.bind()
+        }
+        if (typeof searchbar !== 'undefined') {
+            searchbar.init();
+        }
+        if (typeof huanxin !== 'undefined') {
+            huanxin.bind();
+        }
 
         // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
         // 相关 issue: https://github.com/weui/weui/issues/15
@@ -378,29 +393,51 @@ var pageManager = {
                 }
             })
         }
-        triggerEvent(window,'pageGoOk');
+        triggerEvent(window, 'pageGoOk');
     }
 
 };
-
-var isWeiXin = function() {
+var isWeiXin = function () {
     var ua = window.navigator.userAgent.toLowerCase();
     return ua.match(/MicroMessenger/i) == 'micromessenger';
 };
 
-$(function () {
-    // new member().checkLogin();
+// 获取省市区数据
+var getArea = (function () {
+    var area = [];
+    var areaChildren = {};
+    return function (id) {
+        var def = $.Deferred();
+        if (!id && area.length > 0) {
+            def.resolve(area);
+            return def;
+        }
+        if (id && areaChildren[id] && areaChildren[id].length > 0) {
+            def.resolve(areaChildren[id]);
+            return def;
+        }
+        $.ajax({
+            url: base + '/weixin/area/children.jhtml',
+            data: {
+                areaId: id
+            },
+            method: 'GET',
+            success: function (res) {
+                if (!id) {
+                    area = res.data
+                } else {
+                    areaChildren[id] = res.data
+                }
+                def.resolve(res.data)
+            }
+        })
+        return def;
+    }
+})()
 
-    // new member(function (data) {
-    //     console.log(data);
-    //     cookie.setCookie("userId", data.userId, 1);
-    //     cookie.setCookie("userName", data.nickname, 1);
-    // }).checkLogin({phonenum:'15056575017'});
-
-    // new member(function (data) {
-    //     console.log(data);
-    // }).checkLogin();
-});
+// $(function () {
+//     new member().checkLogin();
+// });
 
 /* ==========================================================================
  封装  ajax数据请求
@@ -413,34 +450,34 @@ $(function () {
 // $.ajaxSettings.complete=function () {
 //
 // };
-$(document).on("ajaxStart", function () {
-    var extension = pageManager.GetQueryString("extension");
-    if (extension) {
-        // if (!redirecting) {
-        //     redirecting = true;
-        //     location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href) + (extension ? ("&extension=" + extension) : "");
-        // }
-    } else {
-        // if (isWeiXin() && !redirecting && !hasLogin) {
-        //     new member(function (data) {
-        //         if (data) {
-        //             hasLogin = true;
-        //         } else {
-        //             redirecting = true;
-        //             location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href);
-        //         }
-        //     }).checkLogin(false);
-        // }
-    }
-}).on("ajaxBeforeSend",function () {
-    if(redirecting) return false;
-});
+// $(document).on("ajaxStart", function () {
+//     var extension = pageManager.GetQueryString("extension");
+//     var chid = pageManager.GetQueryString("chid");
+//     if (extension) {
+//         if (!redirecting) {
+//             redirecting = true;
+//             location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href) + (extension ? ("&extension=" + extension) : "") + (chid ? ("&chid=" + chid) : "");
+//         }
+//     } else {
+//         if (isWeiXin() && !redirecting && !hasLogin) {
+//             new member(function (data) {
+//                 if (data) {
+//                     hasLogin = true;
+//                 } else {
+//                     redirecting = true;
+//                     location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href) + (chid ? ("&chid=" + chid) : "");
+//                 }
+//             }).checkLogin(false);
+//         }
+//     }
+// }).on("ajaxBeforeSend", function () {
+//     if (redirecting) return false;
+// });
 
 
-
-var ajax={
+var ajax = {
     //标准 ajax get 方法
-    get:function (options) {
+    get: function (options) {
         // toast.show("加载中");
         return $.ajax({
             type: 'GET',
@@ -449,37 +486,36 @@ var ajax={
             dataType: 'json',
             context: $('body'),
             crossDomain: true,
-            // xhrFields: {
-            //     withCredentials: true
-            // },
-            traditional:options.traditional?options.traditional:false,
+            xhrFields: {
+                withCredentials: true
+            },
             async: options.async != false,
             success: function (data) {
-                if(redirecting) return;
+                if (redirecting) return;
                 if (data.message.type == "success") {
-                    if(options.success) options.success(data.data);
+                    toast.close();
+                    if (options.success) options.success(data.data);
                 } else {
                     if (options.error != null) {
                         options.error(data.message);
                     } else {
-                        setTimeout(function () {
-                            toast.show(data.message.content);
-                        },100);
+                        toast.show(data.message.content);
                     }
                 }
             },
             error: function (xhr, type) {
-                if(redirecting) return;
+                if (redirecting) return;
                 if (options.error) {
                     options.error(data.message);
                 } else {
-                    // toast.show("获取数据失败");
+                    toast.show("获取数据失败");
                 }
             }
         })
     },
+
     //标准 ajax post 方法
-    post:function (options) {
+    post: function (options) {
         // toast.show("加载中");
         $.ajax({
             type: 'POST',
@@ -488,81 +524,67 @@ var ajax={
             dataType: 'json',
             context: $('body'),
             crossDomain: true,
-            // xhrFields: {
-            //     withCredentials: true
-            // },
-            contentType:(options.contentType!==""&&options.contentType!==undefined)?options.contentType:"application/x-www-form-urlencoded",
-            processData:(options.processData!==""&&options.processData!==undefined)?options.processData:true,
-            traditional:options.traditional?options.traditional:false,
+            xhrFields: {
+                withCredentials: true
+            },
+            contentType: (options.contentType !== "" && options.contentType !== undefined) ? options.contentType : "application/x-www-form-urlencoded",
+            processData: (options.processData !== "" && options.processData !== undefined) ? options.processData : true,
+            traditional: options.traditional ? options.traditional : false,
             success: function (data) {
-
-                if(redirecting) return;
+                if (redirecting) return;
                 if (data.message.type == "success") {
-                    if(options.success) options.success(data.data);
+                    toast.close();
+                    if (options.success) options.success(data.data);
                 } else {
                     if (options.error != null) {
                         options.error(data.message);
                     } else {
-                        toast.closeLoading();
-                        setTimeout(function () {
-                            toast.show(data.message.content);
-                        },100);
+                        dialog.show(data.message.content);
                     }
                 }
             },
             error: function (xhr, type) {
-                if(redirecting) return;
+                if (redirecting) return;
                 if (options.error != null) {
                     options.error(data.message);
                 } else {
-                    // toast.show("获取数据失败");
+                    toast.show("获取数据失败");
                 }
             }
         })
     }
-
 };
 
-var render={
-    fill:function(el,data) {
+var render = {
+    fill: function (el, data) {
         var tpl = Handlebars.compile(el.html());
         return tpl(data);
     }
-
-};
-//scrollto动画
-$.fn.scrollTo = function (options) {
-    var defaults = {
-        toT: 0,    //滚动目标位置
-        durTime: 500,  //过渡动画时间
-        delay: 10,     //定时器时间
-        callback: null   //回调函数
-    };
-    var opts = $.extend(defaults, options),
-        timer = null,
-        _this = this,
-        curTop = _this.scrollTop(),//滚动条当前的位置
-        subTop = opts.toT - curTop,    //滚动条目标位置和当前位置的差值
-        index = 0,
-        dur = Math.round(opts.durTime / opts.delay),
-        smoothScroll = function (t) {
-            index++;
-            var per = Math.round(subTop / dur);
-            if (index >= dur) {
-                _this.scrollTop(t);
-                window.clearInterval(timer);
-                if (opts.callback && typeof opts.callback == 'function') {
-                    opts.callback();
-                }
-                return;
-            } else {
-                _this.scrollTop(curTop + index * per);
-            }
-        };
-    timer = window.setInterval(function () {
-        smoothScroll(opts.toT);
-    }, opts.delay);
-    return _this;
 };
 
-
+//service worker
+//if ('serviceWorker' in navigator && location.hostname !== 'localhost' && location.protocol && location.protocol.toUpperCase() === 'HTTPS:') {
+//    window.addEventListener('load', function () {
+//        navigator.serviceWorker.register('/website/service-worker.js').then(function (reg) {
+//            reg.onupdatefound = function () {
+//                var installingWorker = reg.installing;
+//                installingWorker.onstatechange = function () {
+//                    switch (installingWorker.state) {
+//                        case 'installed':
+//                            if (navigator.serviceWorker.controller) {
+//                                console.log('New or updated content is available.');
+//                            } else {
+//                                console.log('Content is now available offline!');
+//                            }
+//                            break;
+//                        case 'redundant':
+//                            console.error('The installing service worker became redundant.');
+//                            break;
+//                    }
+//                };
+//            };
+//        }).catch(function (e) {
+//            console.log('Error during service worker registration:', e);
+//        });
+//    });
+//}

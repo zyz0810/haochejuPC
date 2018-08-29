@@ -90,18 +90,14 @@ function toMinHtml(pathName, cbBoolean) {
 }
 
 gulp.task('build:project:assets', function () {
-    gulp.src(['src/project/app/images/**/*.*', 'src/project/app/fonts/*.*'], option)
+    gulp.src(['src/project/*/images/**/*.*', 'src/project/*/fonts/*.*'], option)
         .pipe(gulp.dest(dist));
-    gulp.src(['src/project/debug/images/**/*.*', 'src/project/debug/fonts/*.*'], option)
-        .pipe(gulp.dest(dist));
-    gulp.src(['src/project/weixin/images/**/*.*', 'src/project/weixin/fonts/*.*'], option)
-        .pipe(gulp.dest(dist));
-    gulp.src(['src/project/capp/images/**/*.*', 'src/project/capp/fonts/*.*'], option)
+    gulp.src('src/project/*/js/*.?(js)', option)
         .pipe(gulp.dest(dist));
 });
 
 gulp.task('build:project:style', function () {
-    gulp.src(['src/project/*/*.less', 'src/project/**/part/*.less'], option)
+    return gulp.src(['src/project/*/*.less', 'src/project/**/part/*.less'], option)
         .pipe(less().on('error', function (e) {
             console.error(e.message);
             this.emit('end');
@@ -161,6 +157,7 @@ gulp.task('release', ['build:project']);
 gulp.task('watch', function () {
     gulp.watch(['src/project/*/*.less', 'src/project/**/part/*.less'], ['build:project:style']);
     gulp.watch('src/style/**/*.less', ['build:project:style']);
+    gulp.watch('src/style/*/*.less', ['build:project:style']);
     gulp.watch('src/project/**/*.?(png|jpg|gif|eot|svg|ttf|woff)', ['build:project:assets']);
     gulp.watch('src/js/**/*.?(js)', ['build:project:js', 'build:project:html']);
     gulp.watch(['src/project/**/*.js', 'src/project/**/part/*.js'], ['build:project:js']);
@@ -170,6 +167,9 @@ gulp.task('watch', function () {
     gulp.watch(['src/model/**/*.html', 'src/pages/**/*.html', '!src/**/*.min.html'], function (event) {
         toMinHtml(event.path, true)
     });
+    // gulp.watch(['src/**/*.{js,less,html,css,png,jpg,gif,svg,eot,ttf,woff}'], function () {
+    //     gulp.start('swregister');
+    // })
 });
 
 gulp.task('server', function () {
@@ -185,7 +185,7 @@ gulp.task('server', function () {
             }
         },
         port: yargs.p,
-        startPath: '/home/index.html'
+        startPath: '/PC/home/index.html'
     });
 });
 
@@ -201,4 +201,15 @@ gulp.task('default', ['release'], function () {
     if (yargs.w) {
         gulp.start('watch');
     }
+    gulp.start('swregister');
+});
+
+gulp.task('swregister', function (callback) {
+    var swPrecache = require('sw-precache');
+    var rootDir = './release/project';
+
+    swPrecache.write(`${rootDir}/PC/service-worker.js`, {
+        staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+        stripPrefix: rootDir
+    }, callback);
 });

@@ -1,0 +1,105 @@
+.bottom_bar {
+  padding-bottom: 5%;
+  background: #34393F !important;
+  .partner {
+    padding: 8% 2.5% 2.5%;
+    .title {
+      color: @white;
+      //margin-left: 10px;
+    }
+    div{
+      font-size: 0;
+    }
+    img{
+      display: inline-block;
+      width: 8%;
+      margin-right: 7.3%;
+      margin-top: 2%;
+      &:nth-of-type(7n){
+        margin-right: 0;
+      }
+    }
+  }
+  .link {
+    width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid rgba(229, 229, 229, 0.2);
+  }
+  a {
+    color: #B4B4B4 !important;
+    &:hover {
+      color: @white !important;
+    }
+  }
+  .bottom-left {
+    padding-top: 8%;
+    .col-sm-3 {
+      padding: 3%;
+      margin-top: 2%;
+    }
+    .online {
+      display: inline-block;
+      color: @white;
+      padding: 3px 10px;
+      margin-top: 10px;
+      border: 1px solid @white;
+      border-radius: 4px;
+    }
+  }
+  .bottom_line01 {
+    padding-top: 2%;
+    img {
+      width: auto;
+    }
+  }
+  .bottom_line02 {
+    margin-bottom: 20px;
+  }
+  .bottom-right {
+    padding-top: 8%;
+    .col-sm-2 {
+      width: 20% !important;
+    }
+    dl {
+      dt, dd {
+        line-height: 2.2em;
+        .over-flow_omit();
+        &.dmao {
+          position: relative;
+          overflow: inherit;
+          .dmao_ewm {
+            position: absolute;
+            top: 40px;
+            left: -45px;
+            z-index: 9999;
+            background: @white;
+            width: 150px;
+            padding: 5% 5% 0;
+            p {
+              color: @gray !important;
+              margin: 0;
+            }
+          }
+        }
+      }
+      dt {
+        margin-bottom: 10px;
+      }
+      &.weixin {
+        dd {
+          padding: 6% 10% 0 0;
+        }
+      }
+    }
+  }
+  .company_information {
+    color: #B4B4B4;
+    margin-top: 50px;
+    .beian {
+      display: inline-block;
+      width: 15px;
+      margin: 0 5px;
+    }
+  }
+
+}

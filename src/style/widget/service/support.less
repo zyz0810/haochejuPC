@@ -1,0 +1,38 @@
+.support{
+  .row{
+    li{
+      height:525px;
+      padding: 2%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      .panel-default{
+        border: none;
+      }
+      .panel{
+        box-shadow: none;
+      }
+      .panel-default>.panel-heading{
+        background: transparent;
+        border: none;
+      }
+      .panel-title>a{
+        display: block;
+        &:hover{
+          color: @baseColor;
+        }
+        &.selected{
+          color: @baseColor;
+        }
+      }
+      .panel-default>.panel-heading+.panel-collapse>.panel-body{
+        border: none;
+      }
+      .panel-group{
+        margin-bottom: 0;
+      }
+      .arrow{
+        .arrowTop(8px,8px,8px,@bg)
+      }
+    }
+  }
+}
