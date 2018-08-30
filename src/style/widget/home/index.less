@@ -1,4 +1,24 @@
 @charset "UTF-8";
+
+.carousel-indicators{
+  text-align: right;
+  li{
+    width: 30px;
+    height: 5px;
+    .radius(3px);
+    border: none;
+    margin: 0;
+    background: @white;
+  }
+  .active{
+    width: 30px;
+    height: 5px;
+    .radius(3px);
+    border: none;
+    background: @baseColor;
+  }
+}
+
 .title{
   line-height: 45px;
   span{
@@ -12,7 +32,7 @@
 //公司简介
 .company{
   padding-right: 20px;
-  margin: 20px 0;
+  margin: 20px 0 0;
   .cont{
     padding: 15px 20px;
     margin-top: 10px;
@@ -25,7 +45,7 @@
 }
 //最新资讯
 .news{
-  margin: 20px 0;
+  margin: 20px 0 0;
   ul{
     padding: 8px 10px;
     margin-top: 10px;
@@ -35,6 +55,11 @@
       line-height: 2.1em;
       a{
         display: block;
+        span{
+          &.fl{
+            width: 78%;
+          }
+        }
         &:hover{
           span{
             color: @baseColor !important;
@@ -49,6 +74,7 @@
 }
 //招聘
 .recruit{
+  margin: 20px 0 0;
   ul{
     border-top: 1px solid @gray06;
     border-left: 1px solid @gray06;
@@ -71,8 +97,8 @@
           }
         }
         &:hover{
-          padding: 13px 13px 3px;
-          border: 2px solid @baseColor;
+          padding: 14px 14px 4px;
+          border: 1px solid @baseColor;
           box-shadow: 0 0 15px #e0f2ff;
           background: #e0f2ff;
         }
