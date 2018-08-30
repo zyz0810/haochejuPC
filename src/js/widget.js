@@ -17,3 +17,4 @@
 @import "../../js/widget/ie8.js";
 @import "../../js/widget/indexOf.js";
 @import "../../js/widget/map.js";
+@import "../../js/widget/nav.js";

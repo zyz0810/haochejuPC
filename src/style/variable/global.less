@@ -63,6 +63,19 @@ img{
   height: 100%;
 }
 
+.clearfix::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+  .clearfix {
+  zoom: 1;
+}
+
 .arrowTop(@a,@b,@c,@color){
   width: 0;
   height: 0;

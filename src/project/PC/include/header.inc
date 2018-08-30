@@ -1,7 +1,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
-<meta name="author" content="安徽威思通电子商务有限公司">
-<meta name="copyright" content="安徽威思通电子商务有限公司版权所有">
+<meta name="author" content="好车居">
+<meta name="copyright" content="好车居">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <script src="/PC/js/jquery-1.4.2.min.js"></script>

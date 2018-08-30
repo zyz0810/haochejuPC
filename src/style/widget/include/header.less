@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.search{
+  font-size: 0;
+  input{
+    height: 40px;
+    padding: 0 5px;
+    border: 2px solid @baseColor;
+    background: @white;
+    float: left;
+  }
+  span{
+    display: inline-block;
+    height: 40px;
+    background: @baseColor;
+    padding: 7px;
+    float: left;
+    //img{
+    //  width: 26px;
+    //  height: 26px;
+    //}
+  }
+}
+.nav{
+  height: 50px;
+  line-height: 50px;
+  background: @baseColor;
+  ul{
+    li{
+      a{
+        display: inline-block;
+        color: @white;
+        padding: 0 25px;
+        &:hover{
+          background: @active;
+        }
+      }
+      &.active{
+        a{
+          background: @active;
+        }
+      }
+    }
+  }
+}
