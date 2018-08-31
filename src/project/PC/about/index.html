@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>关于我们</title>
+    @import "../include/header.inc";
+</head>
+<body class="about">
+    @import "../../../model/widgets/header.html";
+    @import "../../../model/widgets/navBar.html";
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col-xs-8 col-md-8">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="/PC/images/static/home/banner.png" alt="First slide">
+                        </div>
+                        <div class="item">
+                            <img src="/PC/images/static/home/banner.png" alt="Second slide">
+                        </div>
+                        <div class="item">
+                            <img src="/PC/images/static/home/banner.png" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-4 col-md-4 gray txt">
+                <p class="f28">Enterprise introduction</p>
+                <p><span class="f32">企业</span><span class="f24">简介</span></p>
+                <p>公司简介一般包括以下几个方面：1. 公司概况：这里面可以包括注册时间，注册资本，公司性质，技术力量，规模，员工人数，员工素质等；2. 公司发展状况：公司的发展速度，有何成绩，有何荣誉称号等；3. 公司文化：公司的目标，理念，宗旨，使命，愿景，寄语等；4. 公司主要产品：性能，特色，创新，超前；5. 销售业绩及网络：销售量，各地销售点等；6. 售后服务：主要是公司售后服务的承诺。</p>
+                <p>下面我们以新饶网站策划为例（所有数据为举例方便，无实际意义）1、公司概况：新饶网站策划，2007年，注册资金80万，员工12名，专业的设计策划团队，一家大学生创业公司；</p>
+                <p>2、发展状况：主要面向长沙中小企业，已经为上百家企业提供了网站策划服务；</p>
+                <p>3、公司文化：公司以“专注网站，用心服务”为核心价值，一切以用户需求为中心，希望通过专业水平和不懈努力，重塑企业网络形象，为企业产品推广文化发展提供服务指导；</p>
+                <p>4、公司主要产品：主要为企业提供网站策划，网站设计制作，网站推广优化等服务；销售业绩以及网络：为中小企业提供网站策划服务，先阶段主要面向长沙地区；5、售后服务：新饶网站策划有详细的售后服务体系，提供终生策划指导服务。</p>
+            </div>
+        </div>
+
+    </div>
+    @import "../../../model/widgets/bottomBar.html";
+    @import "../include/footer.inc";
+<script type="text/javascript">
+    $(function () {
+
+        //公告
+        notice();
+        function notice() {
+            var url = base + 'store/kuaixun/list.jhtml';
+            $.ajax({
+                type: "get",
+                dataType: 'json',
+                url: url,
+                data: {
+                    pageNumber: 1,
+                    pageSize: 3
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $.message('warn', "获取数据失败");
+                },
+                success: function (msg) {
+                    if (msg.data.length > 0) {
+                        for (var i = 0; i < msg.data.length; i++) {
+                            var str = '<li class="col-sm-4"><a href="/website/new/view.html?id=' + msg.data[i].id + '" class="white">▪ ' + msg.data[i].title + '</a></li>';
+                            $('.new_notice').append(str);
+
+                        }
+                    } else {
+                        $('.notice').remove();
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>

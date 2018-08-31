@@ -1,22 +1,27 @@
 @charset "UTF-8";
 
-.carousel-indicators{
+.carousel-indicators {
   text-align: right;
-  li{
-    width: 30px;
-    height: 5px;
-    .radius(3px);
-    border: none;
-    margin: 0;
-    background: @white;
+}
+.index{
+  .carousel-indicators{
+    li{
+      width: 30px;
+      height: 5px;
+      .radius(3px);
+      border: none;
+      margin: 0;
+      background: @white;
+    }
+    .active{
+      width: 30px;
+      height: 5px;
+      .radius(3px);
+      border: none;
+      background: @baseColor;
+    }
   }
-  .active{
-    width: 30px;
-    height: 5px;
-    .radius(3px);
-    border: none;
-    background: @baseColor;
-  }
+
 }
 
 .title{

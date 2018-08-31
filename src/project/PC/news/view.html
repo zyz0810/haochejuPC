@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>汽车人才</title>
+    @import "../include/header.inc";
+</head>
+<body class="newsView">
+    @import "../../../model/widgets/header.html";
+    @import "../../../model/widgets/navBar.html";
+    <div class="container-fluid cont">
+        <div class="container">
+            <div class="tit">
+                <p class="f30 gray">女子被撞身亡保险公司以“无证驾驶”拒赔，法院的判决亮了！</p>
+                <p class="f18 gray06"><span>爱吃的懒猫</span><span>2018-04-29  13:20</span></p>
+            </div>
+            <p>广东省肇庆市高要区的一名女子朱某在投保了某保险公司的人身意外伤害保险后不久，因交通事故意外身亡。</p>
+            <p>保险公司却以朱某属无证驾车，事故属于免赔范围为由拒赔。</p>
+            <p>高要法院认为朱某的交通违法行为与该交通事故没有直接因果关系，朱某在保险期间内发生意外事故死亡，属于保险责任范围，保险公司应按保险合同约定给付赔偿金20万元。</p>
+            <img src="/PC/images/static/home/news.png"/>
+            <p>2015年7月在儿子苏某涛的陪同下，朱某向某保险公司购买了保险金额为20万元的个人人身意外伤害保险及保险金额为3万元的附加意外伤害医疗保险，保险有效期为2015年7月至2016年7月，保险受益人为法定继承。2015年10月的一天，朱某驾驶二轮摩托车，当行驶至肇庆市高要区蛟塘镇向莲塘镇方向某路段时，驾驶装载挖掘机的重型平板货车的邓某行至该路段，在弯路行驶时没有降低车速，导致车上装载的挖掘机滑落，造成朱某受伤送医院抢救无效于当天死亡。
+                经交警部门认定，由邓某承担事故的全部责任，朱某在事故中存在未依法取得机动车驾驶证的情况下驾驶未定期进行安全检验的机动车上路行驶的违法行为，但该行为不是导致该宗事故发生的原因，朱某在本次事故中不承担责任。</p>
+            <p>苏某涛遂于事故发生次日向保险公司报案。2017年2月，保险公司却向朱某家属发出《告知函》，告知按照保险条款的约定范围，保险公司不承担赔偿责任。于是，苏某涛联同朱某的另外两名法定继承人苏某君、苏某琳将保险公司诉至高要法院，要求判令保险公司支付人身伤害保险金20万元。</p>
+            <p>高要法院认为：朱某在导致其死亡的交通事故中虽然存在无证驾驶无检验合格的机动车上路行驶的交通违法行为，但朱某的交通违法行为与该宗交通事故没有直接因果关系，邓某的违法行为是造成朱某死亡的近因、主因，朱某是由于遭受意外事故而身故死亡。据此，虽然个人人身意外伤害保险约定被保险人无有效驾驶证或驾驶无有效行驶证的机动车期间发生身故，被保险人不负任何给付保险金责任，但是朱某的交通违法行为与其身故死亡的交通事故没有直接因果关系，朱某在保险期间内发生意外事故身故死亡，属于保险责任的范围，保险公司应负保险责任，应按照保险合同的约定给付赔偿金20万元，故法院依法判令保险公司向朱某的法定继承人苏某涛等三人赔付保险金20万元。</p>
+            <p>某保险公司对高要法院作出的判决不服，提起上诉。此案经二审终审，驳回了某保险公司的上诉请求，维持原判。</p>
+            <p>来源：法制日报</p>
+        </div>
+    </div>
+    @import "../../../model/widgets/bottomBar.html";
+    @import "../include/footer.inc";
+<script type="text/javascript">
+    $(function () {
+
+        //公告
+        notice();
+        function notice() {
+            var url = base + 'store/kuaixun/list.jhtml';
+            $.ajax({
+                type: "get",
+                dataType: 'json',
+                url: url,
+                data: {
+                    pageNumber: 1,
+                    pageSize: 3
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $.message('warn', "获取数据失败");
+                },
+                success: function (msg) {
+                    if (msg.data.length > 0) {
+                        for (var i = 0; i < msg.data.length; i++) {
+                            var str = '<li class="col-sm-4"><a href="/website/new/view.html?id=' + msg.data[i].id + '" class="white">▪ ' + msg.data[i].title + '</a></li>';
+                            $('.new_notice').append(str);
+
+                        }
+                    } else {
+                        $('.notice').remove();
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>
