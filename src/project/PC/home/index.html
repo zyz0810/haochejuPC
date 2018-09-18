@@ -62,7 +62,7 @@
                     <div class="title clearfix">
                         <span class="fl img"><img src="/PC/images/static/include/news_icon.png"/></span>
                         <span class="fl f16 black">最新资讯</span>
-                        <a href="javascript:;" class="fr f12 gray02">查看更多</a>
+                        <a href="/PC/news/index.html" class="fr f12 gray02">查看更多</a>
                     </div>
                     <ul class="f14">
                         <li><a href="/PC/personnel/view.html" class="clearfix "><span class="fl gray over-flow_omit">商管集团全面开展广场消防安全专项整治工作</span><span class="fr gray03">07-05</span></a></li>
@@ -117,40 +117,6 @@
     </div>
     @import "../../../model/widgets/bottomBar.html";
     @import "../include/footer.inc";
-<script type="text/javascript">
-    $(function () {
-
-        //公告
-        notice();
-        function notice() {
-            var url = base + 'store/kuaixun/list.jhtml';
-            $.ajax({
-                type: "get",
-                dataType: 'json',
-                url: url,
-                data: {
-                    pageNumber: 1,
-                    pageSize: 3
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $.message('warn', "获取数据失败");
-                },
-                success: function (msg) {
-                    if (msg.data.length > 0) {
-                        for (var i = 0; i < msg.data.length; i++) {
-                            var str = '<li class="col-sm-4"><a href="/website/new/view.html?id=' + msg.data[i].id + '" class="white">▪ ' + msg.data[i].title + '</a></li>';
-                            $('.new_notice').append(str);
-
-                        }
-                    } else {
-                        $('.notice').remove();
-                    }
-                }
-            });
-        }
-    });
-</script>
-
 </body>
 
 </html>

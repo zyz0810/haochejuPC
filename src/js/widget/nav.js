@@ -9,21 +9,14 @@
         if(aa.indexOf("home/index.html")>-1){
             $(".nav #nav01").addClass('active').siblings().removeClass('active');
         }
-        else if(aa.indexOf("article/index.html")>-1){
-            $(".foot_menu2 #nav2").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-            $(".foot_menu #nav2").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        else if(aa.indexOf("news/index.html")>-1 || aa.indexOf("news/view.html")>-1){
+            $(".nav #nav03").addClass('active').siblings().removeClass('active');
         }
-        else if(aa=='guide/index.html' || aa.indexOf('bizCircle/index.html')>-1){
-            $(".foot_menu2 #nav3").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-            $(".foot_menu #nav3").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        else if(aa.indexOf("personnel/index.html")>-1 || aa.indexOf("personnel/view.html")>-1){
+            $(".nav #nav02").addClass('active').siblings().removeClass('active');
         }
-        else if(aa.indexOf("nearby/index.html")>-1){
-            $(".foot_menu2 #nav4").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-            $(".foot_menu #nav4").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-        }
-        else if(aa.indexOf("member/index.html")>-1 || str.indexOf("redPacket.html")>-1){
-            $(".foot_menu2 #nav5").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-            $(".foot_menu #nav5").addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        else if(aa.indexOf("about/index.html")>-1){
+            $(".nav #nav04").addClass('active').siblings().removeClass('active');
         }
     },100)
 })(window||this);

@@ -108,39 +108,6 @@
     </div>
     @import "../../../model/widgets/bottomBar.html";
     @import "../include/footer.inc";
-<script type="text/javascript">
-    $(function () {
-
-        //公告
-        notice();
-        function notice() {
-            var url = base + 'store/kuaixun/list.jhtml';
-            $.ajax({
-                type: "get",
-                dataType: 'json',
-                url: url,
-                data: {
-                    pageNumber: 1,
-                    pageSize: 3
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $.message('warn', "获取数据失败");
-                },
-                success: function (msg) {
-                    if (msg.data.length > 0) {
-                        for (var i = 0; i < msg.data.length; i++) {
-                            var str = '<li class="col-sm-4"><a href="/website/new/view.html?id=' + msg.data[i].id + '" class="white">▪ ' + msg.data[i].title + '</a></li>';
-                            $('.new_notice').append(str);
-
-                        }
-                    } else {
-                        $('.notice').remove();
-                    }
-                }
-            });
-        }
-    });
-</script>
 
 </body>
 

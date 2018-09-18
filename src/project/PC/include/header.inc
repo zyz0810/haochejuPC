@@ -4,7 +4,6 @@
 <meta name="copyright" content="好车居">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
-<script src="/PC/js/jquery-1.4.2.min.js"></script>
 <script src="/PC/js/jquery-1.8.3.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/PC/js/ie8.js"></script>
@@ -20,7 +19,6 @@
  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
 <![endif]-->
 <!--[if IE]>
-<script type="text/javascript" src="/PC/js/jquery.placeholder.min.js"></script>
 <script type="text/javascript">
         $(function () {
             // Invoke the plugin
@@ -45,13 +43,5 @@
 
 <link rel="stylesheet" href="/PC/style/wap.min.css"/>
 <script src="/PC/js/superSlide.min.js"></script>
-<script src="/PC/js/handlebars.min.js"></script>
-<script src="/PC/js/jquery.lSelect.js"></script>
-  <SCRIPT language=javascript type=text/javascript>
-<!--
-document.oncontextmenu=new Function('event.returnValue=false;');
-document.onselectstart=new Function('event.returnValue=false;');
--->
-  </SCRIPT>
 
 
